@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>
+
+Transformation - Editors For You
+
+</title>
+
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;600&display=swap"
+rel="stylesheet">
+
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+
+body{
+
+font-family:
+Inter;
+
+background:
+linear-gradient(
+135deg,
+#1a0a0a,
+#3d1515,
+#1a0a0a
+);
+
+color:
+white;
+
+overflow-x:
+hidden;
+
+}
+
+
+/* NAV */
+
+nav{
+
+position:
+fixed;
+
+top:0;
+left:0;
+right:0;
+
+padding:
+24px 6vw;
+
+display:
+flex;
+
+justify-content:
+space-between;
+
+background:
+rgba(
+40,
+10,
+10,
+.45
+);
+
+backdrop-filter:
+blur(
+18px
+);
+
+z-index:
+9999;
+
+}
+
+
+nav a,
+nav b{
+
+color:
+#ff6b6b;
+
+text-decoration:
+none;
+
+}
+
+
+/* HERO */
+
+.hero{
+
+min-height:
+100vh;
+
+display:
+flex;
+
+justify-content:
+center;
+
+align-items:
+center;
+
+text-align:
+center;
+
+padding:
+0 6vw;
+
+}
+
+
+.hero h1{
+
+font:
+900 clamp(
+3rem,
+10vw,
+7rem
+)
+
+'Playfair Display';
+
+color:
+#ff6b6b;
+
+}
+
+
+.hero p{
+
+margin-top:
+20px;
+
+color:
+#ddd;
+
+}
+
+
+/* ================= */
+/* PROJECTS */
+/* ================= */
+
+.projects{
+
+padding:
+30px 6vw 80px;
+
+}
+
+
+.projects h2{
+
+text-align:
+center;
+
+font-size:
+2rem;
+
+margin-bottom:
+50px;
+
+font-family:
+'Playfair Display';
+
+color:
+#ff6b6b;
+
+}
+
+
+.projects-row{
+
+display:
+flex;
+
+justify-content:
+center;
+
+gap:
+25px;
+
+}
+
+
+.project{
+
+flex:
+1;
+
+max-width:
+360px;
+
+transition:
+.35s;
+
+}
+
+
+.project:hover{
+
+transform:
+translateY(
+-8px
+);
+
+}
+
+
+.project video{
+
+width:
+100%;
+
+height:
+500px;
+
+object-fit:
+cover;
+
+border-radius:
+20px;
+
+border:
+1px solid rgba(
+255,
+107,
+107,
+.15
+);
+
+background:
+rgba(
+30,
+10,
+10,
+.7
+);
+
+}
+
+
+.project p{
+
+margin-top:
+15px;
+
+text-align:
+center;
+
+font-weight:
+600;
+
+color:
+#ff6b6b;
+
+}
+
+
+/* MOBILE */
+
+@media(
+max-width:900px
+){
+
+.projects-row{
+
+flex-direction:
+column;
+
+align-items:
+center;
+
+}
+
+
+.project{
+
+width:
+100%;
+max-width:
+420px;
+
+}
+
+}
+
+
+/* PRICING */
+
+.grid{
+
+display:
+grid;
+
+grid-template-columns:
+repeat(
+auto-fit,
+minmax(
+280px,
+1fr
+)
+);
+
+gap:
+28px;
+
+padding:
+40px 6vw 100px;
+
+}
+
+
+.card{
+
+background:
+linear-gradient(
+135deg,
+rgba(
+40,
+15,
+15,
+.92
+),
+
+rgba(
+25,
+8,
+8,
+.85
+)
+
+);
+
+padding:
+40px;
+
+border-radius:
+20px;
+
+border:
+1px solid rgba(
+255,
+107,
+107,
+.18
+);
+
+transition:
+.35s;
+
+}
+
+
+.card:hover{
+
+transform:
+translateY(
+-12px
+);
+
+box-shadow:
+0 25px 50px rgba(
+255,
+107,
+107,
+.18
+);
+
+}
+
+
+.card h3{
+
+color:
+#ff6b6b;
+
+margin-bottom:
+18px;
+
+}
+
+
+.card p{
+
+line-height:
+1.7;
+
+color:
+#ddd;
+
+}
+
+
+.price{
+
+font-size:
+3rem;
+
+font-weight:
+800;
+
+margin:
+28px 0;
+
+color:
+#ff6b6b;
+
+}
+
+
+/* FOOTER */
+
+footer{
+
+padding:
+90px 6vw;
+
+background:
+rgba(
+20,
+8,
+8,
+.75
+);
+
+text-align:
+center;
+
+}
+
+
+input,
+select{
+
+display:
+block;
+
+width:
+100%;
+
+max-width:
+420px;
+
+margin:
+12px auto;
+
+padding:
+18px;
+
+background:
+rgba(
+40,
+15,
+15,
+.9
+);
+
+border:
+1px solid rgba(
+255,
+107,
+107,
+.25
+);
+
+border-radius:
+14px;
+
+color:
+white;
+
+}
+
+
+.btn{
+
+display:
+inline-block;
+
+margin-top:
+18px;
+
+padding:
+16px 34px;
+
+background:
+linear-gradient(
+135deg,
+#ff6b6b,
+#ff4444
+);
+
+border-radius:
+40px;
+
+font-weight:
+700;
+
+text-decoration:
+none;
+
+color:
+black;
+
+}
+
+</style>
+
+</head>
+
+
+
+<body>
+
+
+<nav>
+
+<a href="index.html">
+
+← Back Home
+
+</a>
+
+
+<b>
+
+TRANSFORMATION
+
+</b>
+
+</nav>
+
+
+
+<section class="hero">
+
+<div>
+
+<h1>
+
+TRANSFORMATION STORIES
+
+</h1>
+
+
+<p>
+
+CAPTURING LIFE-CHANGING MOMENTS WITH CINEMATIC BRILLIANCE
+
+</p>
+
+</div>
+
+</section>
+
+
+
+<section class="projects">
+
+<h2>
+
+PROJECTS
+
+</h2>
+
+
+<div class="projects-row">
+
+
+<div class="project">
+
+<video controls>
+
+<source src="project1.mp4">
+
+</video>
+
+<p>
+
+Project 1
+
+</p>
+
+</div>
+
+
+
+<div class="project">
+
+<video controls>
+
+<source src="project2.mp4">
+
+</video>
+
+<p>
+
+Project 2
+
+</p>
+
+</div>
+
+
+
+<div class="project">
+
+<video controls>
+
+<source src="project3.mp4">
+
+</video>
+
+<p>
+
+Project 3
+
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<div class="grid">
+
+
+<div class="card">
+
+<h3>
+
+Basic
+
+</h3>
+
+<p>
+
+Professional cuts and music to tell your transformation story.
+
+</p>
+
+<div class="price">
+
+₹1,499
+
+</div>
+
+<p>
+
+Cuts • Music • Basic Color
+
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h3>
+
+Standard
+
+</h3>
+
+<p>
+
+Cuts, music, transitions, and color grading for enhanced visual impact.
+
+</p>
+
+<div class="price">
+
+₹3,499
+
+</div>
+
+<p>
+
+Cuts • Music • Transitions • Color Grade
+
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h3>
+
+Premium
+
+</h3>
+
+<p>
+
+Complete storytelling with SFX, professional sound design, and cinematic effects.
+
+</p>
+
+<div class="price">
+
+₹6,999
+
+</div>
+
+<p>
+
+Cuts • Storytelling • SFX • Sound Design
+
+</p>
+
+</div>
+
+
+</div>
+
+
+
+<footer>
+
+<h2>
+
+Start Your Transformation Journey
+
+</h2>
+
+
+<p style="margin:20px 0;color:#ddd">
+
+Let us capture your greatest transformation story
+
+</p>
+
+
+<input placeholder="Full Name">
+
+<input placeholder="Email Address">
+
+<input placeholder="Phone Number">
+
+
+<select>
+
+<option>
+
+Transformation
+
+</option>
+
+<option>
+
+Creator
+
+</option>
+
+<option>
+
+Trips
+
+</option>
+
+<option>
+
+Anniversary
+
+</option>
+
+<option>
+
+Baby Shower
+
+</option>
+
+<option>
+
+Social Media
+
+</option>
+
+</select>
+
+
+<a class="btn">
+
+Get Started
+
+</a>
+
+</footer>
+
+</body>
+
+</html>

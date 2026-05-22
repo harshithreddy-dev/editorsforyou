@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>
+
+Trips — Editors For You
+
+</title>
+
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600&display=swap"
+rel="stylesheet">
+
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+
+body{
+
+font-family:
+Inter,sans-serif;
+
+background:
+linear-gradient(
+135deg,
+#08111f,
+#16345c,
+#ff8c42
+);
+
+overflow-x:hidden;
+color:white;
+
+}
+
+
+/* NAV */
+
+nav{
+
+position:fixed;
+
+top:0;
+left:0;
+right:0;
+
+padding:24px 6vw;
+
+display:flex;
+justify-content:space-between;
+
+background:
+rgba(
+8,
+20,
+40,
+.45
+);
+
+backdrop-filter:
+blur(
+18px
+);
+
+z-index:
+9999;
+
+}
+
+
+nav a,
+nav b{
+
+color:
+#ff8c42;
+
+text-decoration:
+none;
+
+}
+
+
+/* HERO */
+
+.hero{
+
+min-height:
+100vh;
+
+display:
+flex;
+
+justify-content:
+center;
+
+align-items:
+center;
+
+text-align:
+center;
+
+padding:
+0 6vw;
+
+}
+
+
+.hero h1{
+
+font:
+900 clamp(
+3rem,
+10vw,
+7rem
+)
+
+'Playfair Display';
+
+color:
+#ff8c42;
+
+}
+
+
+.hero p{
+
+margin-top:
+25px;
+
+color:
+#ddd;
+
+}
+
+
+/* ================= */
+/* PROJECTS */
+/* ================= */
+
+.projects{
+
+padding:
+30px 6vw 80px;
+
+}
+
+
+.projects h2{
+
+text-align:
+center;
+
+font-size:
+2rem;
+
+margin-bottom:
+50px;
+
+font-family:
+'Playfair Display';
+
+color:
+#ff8c42;
+
+}
+
+
+.projects-row{
+
+display:
+flex;
+
+justify-content:
+center;
+
+gap:
+25px;
+
+}
+
+
+.project{
+
+flex:
+1;
+
+max-width:
+360px;
+
+transition:
+.35s;
+
+}
+
+
+.project:hover{
+
+transform:
+translateY(
+-8px
+);
+
+}
+
+
+.project video{
+
+width:
+100%;
+
+height:
+500px;
+
+object-fit:
+cover;
+
+border-radius:
+20px;
+
+border:
+1px solid rgba(
+255,
+140,
+66,
+.15
+);
+
+background:
+rgba(
+10,
+25,
+45,
+.8
+);
+
+}
+
+
+.project p{
+
+margin-top:
+15px;
+
+text-align:
+center;
+
+font-weight:
+600;
+
+color:
+#ffd0a8;
+
+}
+
+
+/* MOBILE */
+
+@media(
+max-width:900px
+){
+
+.projects-row{
+
+flex-direction:
+column;
+
+align-items:
+center;
+
+}
+
+
+.project{
+
+width:
+100%;
+max-width:
+420px;
+
+}
+
+}
+
+
+/* PRICING */
+
+.grid{
+
+display:
+grid;
+
+grid-template-columns:
+repeat(
+auto-fit,
+minmax(
+280px,
+1fr
+)
+);
+
+gap:
+30px;
+
+padding:
+40px 6vw 100px;
+
+}
+
+
+.card{
+
+padding:
+40px;
+
+border-radius:
+24px;
+
+background:
+linear-gradient(
+135deg,
+rgba(
+15,
+35,
+70,
+.95
+),
+
+rgba(
+10,
+25,
+45,
+.9
+)
+
+);
+
+border:
+1px solid rgba(
+255,
+140,
+66,
+.12
+);
+
+transition:
+.35s;
+
+}
+
+
+.card:hover{
+
+transform:
+translateY(
+-10px
+);
+
+box-shadow:
+0 25px 60px rgba(
+255,
+140,
+66,
+.14
+);
+
+}
+
+
+.card h3{
+
+color:
+#ff8c42;
+
+margin-bottom:
+18px;
+
+}
+
+
+.card p{
+
+line-height:
+1.7;
+
+color:
+#ccc;
+
+}
+
+
+.price{
+
+font-size:
+3rem;
+
+font-weight:
+800;
+
+margin:
+25px 0;
+
+color:
+#ffd0a8;
+
+}
+
+
+/* FOOTER */
+
+footer{
+
+padding:
+100px 6vw;
+
+background:
+rgba(
+5,
+15,
+30,
+.65
+);
+
+text-align:
+center;
+
+}
+
+
+input,
+select{
+
+display:
+block;
+
+width:
+100%;
+
+max-width:
+420px;
+
+margin:
+12px auto;
+
+padding:
+18px;
+
+background:
+rgba(
+10,
+25,
+45,
+.9
+);
+
+border:
+1px solid rgba(
+255,
+140,
+66,
+.12
+);
+
+border-radius:
+14px;
+
+color:
+white;
+
+}
+
+
+.btn{
+
+display:
+inline-block;
+
+padding:
+16px 36px;
+
+margin-top:
+20px;
+
+background:
+linear-gradient(
+135deg,
+#ff8c42,
+#ffaa00
+);
+
+border-radius:
+40px;
+
+font-weight:
+700;
+
+color:
+black;
+
+text-decoration:
+none;
+
+}
+
+</style>
+
+</head>
+
+
+
+<body>
+
+
+<nav>
+
+<a href="index.html">
+
+← Back Home
+
+</a>
+
+
+<b>
+
+TRAVEL STORIES
+
+</b>
+
+</nav>
+
+
+
+<section class="hero">
+
+<div>
+
+<h1>
+
+CINEMATIC ADVENTURES
+
+</h1>
+
+
+<p>
+
+TRANSFORM TRAVEL MOMENTS INTO EPIC CINEMATIC NARRATIVES
+
+</p>
+
+</div>
+
+</section>
+
+
+
+<section class="projects">
+
+<h2>
+
+PROJECTS
+
+</h2>
+
+
+<div class="projects-row">
+
+
+<div class="project">
+
+<video controls>
+
+<source src="project1.mp4">
+
+</video>
+
+<p>
+
+Project 1
+
+</p>
+
+</div>
+
+
+
+<div class="project">
+
+<video controls>
+
+<source src="project2.mp4">
+
+</video>
+
+<p>
+
+Project 2
+
+</p>
+
+</div>
+
+
+
+<div class="project">
+
+<video controls>
+
+<source src="project3.mp4">
+
+</video>
+
+<p>
+
+Project 3
+
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<div class="grid">
+
+
+<div class="card">
+
+<h3>
+
+Basic
+
+</h3>
+
+<p>
+
+Quick travel highlights with music and emotional editing.
+
+</p>
+
+<div class="price">
+
+₹1,299
+
+</div>
+
+<p>
+
+Cuts • Music • Basic Color
+
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h3>
+
+Standard
+
+</h3>
+
+<p>
+
+Extended edits with transitions and cinematic grading.
+
+</p>
+
+<div class="price">
+
+₹3,299
+
+</div>
+
+<p>
+
+Cuts • Transitions • Color Grade
+
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h3>
+
+Premium
+
+</h3>
+
+<p>
+
+Epic travel storytelling with SFX and premium sound design.
+
+</p>
+
+<div class="price">
+
+₹6,499
+
+</div>
+
+<p>
+
+Storytelling • SFX • Sound Design
+
+</p>
+
+</div>
+
+
+</div>
+
+
+
+<footer>
+
+<h2>
+
+Relive Your Adventure
+
+</h2>
+
+
+<p style="margin:20px 0;color:#ddd">
+
+Create a travel film capturing the spirit of exploration.
+
+</p>
+
+
+<input placeholder="Full Name">
+
+<input placeholder="Email Address">
+
+<input placeholder="Phone Number">
+
+
+<select>
+
+<option>
+
+Trips
+
+</option>
+
+<option>
+
+Transformation
+
+</option>
+
+<option>
+
+Creator
+
+</option>
+
+<option>
+
+Anniversary
+
+</option>
+
+<option>
+
+Baby Shower
+
+</option>
+
+<option>
+
+Social Media
+
+</option>
+
+</select>
+
+
+<a class="btn">
+
+Start Project
+
+</a>
+
+</footer>
+
+</body>
+
+</html>

@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>
+
+Baby Shower - Editors For You
+
+</title>
+
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;600&display=swap"
+rel="stylesheet">
+
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+
+font-family:
+Inter,
+sans-serif;
+
+background:
+linear-gradient(
+135deg,
+#f5e6d3 0%,
+#f0d5e0 50%,
+#ffe0e6 100%
+);
+
+color:
+#4a2a3a;
+
+overflow-x:
+hidden;
+
+}
+
+
+/* NAV */
+
+nav{
+
+position:
+fixed;
+
+top:0;
+left:0;
+right:0;
+
+display:flex;
+
+justify-content:
+space-between;
+
+align-items:
+center;
+
+padding:
+24px 6vw;
+
+z-index:
+9999;
+
+background:
+rgba(
+255,
+240,
+245,
+.45
+);
+
+backdrop-filter:
+blur(
+18px
+);
+
+border-bottom:
+1px solid rgba(
+212,
+81,
+109,
+.15
+);
+
+}
+
+
+nav a{
+
+text-decoration:
+none;
+
+color:
+#d4516d;
+
+font-weight:
+600;
+
+}
+
+
+nav b{
+
+color:
+#d4516d;
+
+}
+
+
+/* HERO */
+
+.hero{
+
+min-height:
+100vh;
+
+display:
+flex;
+
+justify-content:
+center;
+
+align-items:
+center;
+
+text-align:
+center;
+
+padding:
+0 6vw;
+
+}
+
+
+.hero h1{
+
+font:
+900 clamp(
+3rem,
+10vw,
+7rem
+)
+
+'Playfair Display';
+
+color:
+#d4516d;
+
+}
+
+
+.hero p{
+
+margin-top:
+24px;
+
+color:
+#6b4a5a;
+
+}
+
+
+/* ================= */
+/* PROJECTS */
+/* ================= */
+
+.projects{
+
+padding:
+30px 6vw 80px;
+
+}
+
+
+.projects h2{
+
+text-align:
+center;
+
+font-size:
+2rem;
+
+margin-bottom:
+50px;
+
+font-family:
+'Playfair Display';
+
+color:
+#d4516d;
+
+}
+
+
+/* ROW */
+
+.projects-row{
+
+display:
+flex;
+
+justify-content:
+center;
+
+gap:
+25px;
+
+}
+
+
+/* PROJECT */
+
+.project{
+
+flex:
+1;
+
+max-width:
+360px;
+
+transition:
+.35s;
+
+}
+
+
+.project:hover{
+
+transform:
+translateY(
+-8px
+);
+
+}
+
+
+/* VIDEO */
+
+.project video{
+
+width:
+100%;
+
+height:
+500px;
+
+object-fit:
+cover;
+
+border-radius:
+20px;
+
+background:
+rgba(
+255,
+255,
+255,
+.5
+);
+
+border:
+1px solid rgba(
+212,
+81,
+109,
+.15
+);
+
+}
+
+
+/* TITLE */
+
+.project p{
+
+margin-top:
+15px;
+
+text-align:
+center;
+
+font-weight:
+600;
+
+color:
+#d4516d;
+
+}
+
+
+/* MOBILE */
+
+@media(
+max-width:900px
+){
+
+.projects-row{
+
+flex-direction:
+column;
+
+align-items:
+center;
+
+}
+
+
+.project{
+
+width:
+100%;
+
+max-width:
+420px;
+
+}
+
+}
+
+
+/* PRICING */
+
+.grid{
+
+display:
+grid;
+
+grid-template-columns:
+repeat(
+auto-fit,
+minmax(
+280px,
+1fr
+)
+);
+
+gap:
+30px;
+
+padding:
+40px 6vw 100px;
+
+}
+
+
+.card{
+
+background:
+linear-gradient(
+135deg,
+rgba(
+255,
+255,
+255,
+.78
+),
+
+rgba(
+245,
+220,
+230,
+.88
+)
+
+);
+
+padding:
+40px;
+
+border-radius:
+24px;
+
+border:
+1px solid rgba(
+212,
+81,
+109,
+.18
+);
+
+transition:
+.35s;
+
+}
+
+
+.card:hover{
+
+transform:
+translateY(
+-10px
+);
+
+box-shadow:
+0 25px 60px rgba(
+212,
+81,
+109,
+.16
+);
+
+}
+
+
+/* PRICE */
+
+.price{
+
+font-size:
+3rem;
+
+font-weight:
+800;
+
+margin:
+25px 0;
+
+color:
+#d4516d;
+
+}
+
+
+/* FOOTER */
+
+footer{
+
+padding:
+100px 6vw;
+
+text-align:
+center;
+
+background:
+rgba(
+255,
+245,
+248,
+.55
+);
+
+}
+
+
+input,
+select{
+
+display:
+block;
+
+width:
+100%;
+
+max-width:
+420px;
+
+margin:
+12px auto;
+
+padding:
+18px;
+
+background:
+rgba(
+255,
+255,
+255,
+.75
+);
+
+border:
+1px solid rgba(
+212,
+81,
+109,
+.18
+);
+
+border-radius:
+14px;
+
+}
+
+
+.btn{
+
+display:
+inline-block;
+
+padding:
+16px 36px;
+
+margin-top:
+20px;
+
+background:
+linear-gradient(
+135deg,
+#d4516d,
+#f08ca7
+);
+
+border-radius:
+40px;
+
+text-decoration:
+none;
+
+font-weight:
+700;
+
+color:
+white;
+
+}
+
+</style>
+
+</head>
+
+
+
+<body>
+
+
+<nav>
+
+<a href="index.html">
+
+← Back Home
+
+</a>
+
+
+<b>
+
+BABY SHOWER
+
+</b>
+
+</nav>
+
+
+
+<section class="hero">
+
+<div>
+
+<h1>
+
+CELEBRATE NEW BEGINNINGS
+
+</h1>
+
+
+<p>
+
+CINEMATIC BABY SHOWER STORYTELLING THAT CAPTURES JOY FOREVER
+
+</p>
+
+</div>
+
+</section>
+
+
+
+<section class="projects">
+
+<h2>
+
+PROJECTS
+
+</h2>
+
+
+<div class="projects-row">
+
+
+<div class="project">
+
+<video controls>
+
+<source src="project1.mp4">
+
+</video>
+
+<p>
+
+Project 1
+
+</p>
+
+</div>
+
+
+
+<div class="project">
+
+<video controls>
+
+<source src="project2.mp4">
+
+</video>
+
+<p>
+
+Project 2
+
+</p>
+
+</div>
+
+
+
+<div class="project">
+
+<video controls>
+
+<source src="project3.mp4">
+
+</video>
+
+<p>
+
+Project 3
+
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<div class="grid">
+
+<div class="card">
+
+<h3>
+
+Basic
+
+</h3>
+
+<div class="price">
+
+₹2,499
+
+</div>
+
+</div>
+
+
+
+<div class="card">
+
+<h3>
+
+Standard
+
+</h3>
+
+<div class="price">
+
+₹5,499
+
+</div>
+
+</div>
+
+
+
+<div class="card">
+
+<h3>
+
+Premium
+
+</h3>
+
+<div class="price">
+
+₹9,999
+
+</div>
+
+</div>
+
+
+</div>
+
+
+
+<footer>
+
+<h2>
+
+Preserve This Beautiful Moment
+
+</h2>
+
+
+<input placeholder="Full Name">
+
+<input placeholder="Email">
+
+
+<a class="btn">
+
+Book Now
+
+</a>
+
+</footer>
+
+</body>
+
+</html>
