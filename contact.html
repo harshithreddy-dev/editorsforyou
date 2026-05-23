@@ -38,7 +38,8 @@ Inter;
 color:
 white;
 
-overflow:hidden;
+overflow-x:hidden;
+overflow-y:auto;
 
 }
 
@@ -302,6 +303,150 @@ translateY(
 -4px
 );
 
+}
+
+
+/* ---------- PREMIUM SCALE ---------- */
+
+body{
+font-size:.92rem;
+}
+
+nav{
+padding:16px 6vw !important;
+align-items:center;
+}
+
+nav b,
+nav a{
+font-size:.82rem !important;
+letter-spacing:.08em;
+}
+
+.hero{
+min-height:82vh !important;
+padding:86px 6vw 54px !important;
+}
+
+.hero h1,
+h1{
+font-size:clamp(2.45rem,6.5vw,5.2rem) !important;
+line-height:.95 !important;
+letter-spacing:0 !important;
+}
+
+.hero p,
+.subtitle,
+p{
+font-size:.86rem !important;
+line-height:1.6 !important;
+}
+
+.hero p,
+.subtitle{
+margin-top:16px !important;
+letter-spacing:.08em;
+}
+
+.projects{
+padding:22px 6vw 58px !important;
+}
+
+.projects h2{
+font-size:clamp(1.35rem,2.4vw,1.8rem) !important;
+margin-bottom:32px !important;
+}
+
+.grid{
+gap:22px !important;
+padding:28px 6vw 70px !important;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr)) !important;
+}
+
+.card{
+padding:28px !important;
+border-radius:18px !important;
+}
+
+.card h3{
+font-size:1.05rem !important;
+margin-bottom:12px !important;
+}
+
+.card p{
+font-size:.85rem !important;
+line-height:1.65 !important;
+}
+
+.price{
+font-size:2.1rem !important;
+margin:18px 0 !important;
+}
+
+.btn,
+button,
+.box a{
+padding:13px 28px !important;
+font-size:.86rem !important;
+}
+
+footer{
+padding:56px 6vw !important;
+}
+
+.project{
+max-width:320px !important;
+}
+
+.project video{
+height:420px !important;
+}
+
+.form-box{
+max-width:560px !important;
+padding:34px !important;
+border-radius:22px !important;
+}
+
+.box{
+padding:38px !important;
+border-radius:22px !important;
+}
+
+input,
+select,
+textarea{
+padding:14px !important;
+font-size:.9rem !important;
+}
+
+textarea{
+height:120px !important;
+}
+
+@media(max-width:700px){
+.hero{
+min-height:76vh !important;
+padding:82px 5vw 42px !important;
+}
+
+.hero h1,
+h1{
+font-size:clamp(2.1rem,12vw,3.25rem) !important;
+}
+
+.card{
+padding:22px !important;
+}
+
+.project video{
+height:360px !important;
+}
+
+.form-box,
+.box{
+padding:26px 20px !important;
+}
 }
 
 </style>
@@ -340,7 +485,7 @@ We'll turn it into emotion.
 
 
 <form
-action="https://formsubmit.co/editorsforyouagency@gmail.com"
+action="/contact"
 method="POST">
 
 
@@ -417,18 +562,6 @@ name="project"
 placeholder="Describe your project...">
 
 </textarea>
-
-
-<input
-type="hidden"
-name="_subject"
-value="New Editors For You Client">
-
-
-<input
-type="hidden"
-name="_next"
-value="thankyou.html">
 
 
 <button>
