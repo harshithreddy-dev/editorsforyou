@@ -272,7 +272,7 @@ background:
 linear-gradient(120deg, transparent 0 48%, var(--motion-sweep, rgba(255,255,255,.05)) 49%, transparent 50% 100%),
 linear-gradient(24deg, transparent 0 70%, var(--motion-line, rgba(26,255,122,.045)) 70.5%, transparent 71% 100%);
 background-size:520px 520px, 360px 360px;
-animation:slowSweep 42s linear infinite;
+animation:slowSweep 14s linear infinite;
 }
 
 .motion-layer::after{
@@ -284,7 +284,7 @@ linear-gradient(var(--motion-line, rgba(26,255,122,.05)) 1px, transparent 1px),
 linear-gradient(90deg, var(--motion-line, rgba(26,255,122,.05)) 1px, transparent 1px);
 background-size:86px 86px;
 mask-image:radial-gradient(ellipse at center, black 0 42%, transparent 74%);
-animation:gridBreathe 24s ease-in-out infinite alternate;
+animation:gridBreathe 8s ease-in-out infinite alternate;
 }
 
 .motion-track{
@@ -295,7 +295,7 @@ width:var(--w, 220px);
 height:var(--h, 80px);
 opacity:var(--o, .48);
 transform:rotate(var(--rot, 0deg));
-animation:slowFloat var(--speed, 34s) ease-in-out infinite alternate;
+animation:slowFloat var(--speed, 12s) ease-in-out infinite alternate;
 }
 
 .motion-track::before,
@@ -425,9 +425,9 @@ z-index:9999 !important;
 .motion-creator{--motion-c:rgba(180,120,255,.32);--motion-line:rgba(180,120,255,.055);--motion-sweep:rgba(180,120,255,.045);--motion-glow:rgba(180,120,255,.12);}
 .motion-social,.motion-contact{--motion-c:rgba(26,255,122,.3);--motion-line:rgba(0,190,255,.055);--motion-sweep:rgba(26,255,122,.045);--motion-glow:rgba(26,255,122,.12);}
 
-@keyframes slowSweep{0%{transform:translate3d(-5%, -2%, 0) rotate(0deg);}100%{transform:translate3d(5%, 3%, 0) rotate(2deg);}}
+@keyframes slowSweep{0%{transform:translate3d(-15%, -6%, 0) rotate(0deg);}100%{transform:translate3d(15%, 9%, 0) rotate(2deg);}}
 @keyframes gridBreathe{0%{opacity:.28; transform:scale(1);}100%{opacity:.58; transform:scale(1.04);}}
-@keyframes slowFloat{0%{transform:translate3d(0,0,0) rotate(var(--rot, 0deg));}45%{transform:translate3d(26px,-34px,0) rotate(calc(var(--rot, 0deg) + 4deg));}100%{transform:translate3d(-18px,28px,0) rotate(calc(var(--rot, 0deg) - 3deg));}}
+@keyframes slowFloat{0%{transform:translate3d(0,0,0) rotate(var(--rot, 0deg));}45%{transform:translate3d(78px,-102px,0) rotate(calc(var(--rot, 0deg) + 4deg));}100%{transform:translate3d(-54px,84px,0) rotate(calc(var(--rot, 0deg) - 3deg));}}
 
 @media(max-width:700px){
 .motion-layer{opacity:.42;}
@@ -440,7 +440,7 @@ z-index:9999 !important;
 
 <body>
 
-<div class="motion-layer motion-contact" aria-hidden="true"><span class="motion-track rings" style="--x:10%;--y:20%;--w:150px;--h:150px;--rot:-8deg;--speed:48s"></span><span class="motion-track timeline" style="--x:70%;--y:22%;--w:260px;--h:80px;--rot:6deg;--speed:46s"></span><span class="motion-track frame" style="--x:58%;--y:74%;--w:220px;--h:116px;--rot:-3deg;--speed:44s"></span></div>
+<div class="motion-layer motion-contact" aria-hidden="true"><span class="motion-track rings" style="--x:10%;--y:20%;--w:150px;--h:150px;--rot:-8deg;--speed:16s"></span><span class="motion-track timeline" style="--x:70%;--y:22%;--w:260px;--h:80px;--rot:6deg;--speed:15s"></span><span class="motion-track frame" style="--x:58%;--y:74%;--w:220px;--h:116px;--rot:-3deg;--speed:15s"></span></div>
 
 <div class="box">
 
