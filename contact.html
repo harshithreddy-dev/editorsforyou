@@ -447,6 +447,192 @@ height:360px !important;
 .box{
 padding:26px 20px !important;
 }
+}
+
+
+/* ---------- MOTION GRAPHICS ---------- */
+
+body{
+position:relative;
+}
+
+.motion-layer{
+position:fixed;
+inset:0;
+pointer-events:none;
+overflow:hidden;
+z-index:0;
+opacity:.68;
+}
+
+.motion-layer::before{
+content:"";
+position:absolute;
+inset:-30%;
+background:
+linear-gradient(120deg, transparent 0 48%, var(--motion-sweep, rgba(255,255,255,.05)) 49%, transparent 50% 100%),
+linear-gradient(24deg, transparent 0 70%, var(--motion-line, rgba(26,255,122,.045)) 70.5%, transparent 71% 100%);
+background-size:520px 520px, 360px 360px;
+animation:slowSweep 42s linear infinite;
+}
+
+.motion-layer::after{
+content:"";
+position:absolute;
+inset:0;
+background-image:
+linear-gradient(var(--motion-line, rgba(26,255,122,.05)) 1px, transparent 1px),
+linear-gradient(90deg, var(--motion-line, rgba(26,255,122,.05)) 1px, transparent 1px);
+background-size:86px 86px;
+mask-image:radial-gradient(ellipse at center, black 0 42%, transparent 74%);
+animation:gridBreathe 24s ease-in-out infinite alternate;
+}
+
+.motion-track{
+position:absolute;
+left:var(--x, 10%);
+top:var(--y, 20%);
+width:var(--w, 220px);
+height:var(--h, 80px);
+opacity:var(--o, .48);
+transform:rotate(var(--rot, 0deg));
+animation:slowFloat var(--speed, 34s) ease-in-out infinite alternate;
+}
+
+.motion-track::before,
+.motion-track::after{
+content:"";
+position:absolute;
+inset:0;
+}
+
+.motion-track.frame::before{
+border:1px solid var(--motion-c, rgba(26,255,122,.28));
+border-radius:16px;
+box-shadow:inset 0 0 0 10px rgba(255,255,255,.015), 0 0 28px var(--motion-glow, rgba(26,255,122,.09));
+}
+
+.motion-track.frame::after{
+inset:10px;
+border-top:1px solid var(--motion-c, rgba(26,255,122,.18));
+border-bottom:1px solid var(--motion-c, rgba(26,255,122,.18));
+background:repeating-linear-gradient(90deg, var(--motion-c, rgba(26,255,122,.18)) 0 6px, transparent 6px 18px);
+mask-image:linear-gradient(90deg, transparent 0 12%, black 24% 76%, transparent 88% 100%);
+}
+
+.motion-track.timeline::before{
+top:50%;
+height:1px;
+background:linear-gradient(90deg, transparent, var(--motion-c, rgba(26,255,122,.35)), transparent);
+}
+
+.motion-track.timeline::after{
+height:8px;
+top:calc(50% - 4px);
+background:repeating-linear-gradient(90deg, transparent 0 24px, var(--motion-c, rgba(26,255,122,.32)) 24px 32px, transparent 32px 52px);
+filter:drop-shadow(0 0 12px var(--motion-glow, rgba(26,255,122,.12)));
+}
+
+.motion-track.rings::before{
+border:1px solid var(--motion-c, rgba(26,255,122,.28));
+border-radius:50%;
+box-shadow:0 0 0 22px transparent, 0 0 0 23px var(--motion-line, rgba(26,255,122,.08)), 0 0 36px var(--motion-glow, rgba(26,255,122,.1));
+}
+
+.motion-track.rings::after{
+inset:22%;
+border:1px solid var(--motion-c, rgba(26,255,122,.2));
+border-radius:50%;
+}
+
+.motion-track.route::before{
+height:100%;
+border:none;
+background:
+linear-gradient(135deg, transparent 0 18%, var(--motion-c, rgba(80,180,255,.32)) 18.3% 19%, transparent 19.3% 38%, var(--motion-c, rgba(80,180,255,.28)) 38.3% 39%, transparent 39.3% 68%, var(--motion-c, rgba(80,180,255,.32)) 68.3% 69%, transparent 69.3% 100%);
+filter:drop-shadow(0 0 12px var(--motion-glow, rgba(80,180,255,.12)));
+}
+
+.motion-track.route::after{
+width:10px;
+height:10px;
+border:1px solid var(--motion-c, rgba(80,180,255,.42));
+transform:translate(42px, 18px) rotate(45deg);
+box-shadow:90px 52px 0 -1px var(--motion-c, rgba(80,180,255,.34)), 178px 10px 0 -1px var(--motion-c, rgba(80,180,255,.34));
+}
+
+.motion-track.wave::before{
+top:50%;
+height:44px;
+transform:translateY(-50%);
+background:repeating-linear-gradient(90deg, var(--motion-c, rgba(26,255,122,.28)) 0 3px, transparent 3px 16px);
+mask-image:linear-gradient(90deg, transparent, black 18% 82%, transparent), linear-gradient(180deg, transparent 0 20%, black 30% 70%, transparent 80% 100%);
+filter:drop-shadow(0 0 12px var(--motion-glow, rgba(26,255,122,.12)));
+}
+
+.motion-track.heart::before,
+.motion-track.heart::after{
+width:48%;
+height:76%;
+left:26%;
+top:8%;
+border:1px solid var(--motion-c, rgba(212,165,116,.28));
+border-bottom:none;
+border-radius:50% 50% 0 0;
+transform:rotate(-45deg);
+transform-origin:0 100%;
+box-shadow:0 0 24px var(--motion-glow, rgba(212,165,116,.1));
+}
+
+.motion-track.heart::after{
+left:26%;
+transform:rotate(45deg);
+transform-origin:100% 100%;
+}
+
+.motion-track.spark::before{
+left:50%;
+top:50%;
+width:100%;
+height:1px;
+background:linear-gradient(90deg, transparent, var(--motion-c, rgba(26,255,122,.34)), transparent);
+transform:translate(-50%, -50%);
+box-shadow:0 24px 0 var(--motion-line, rgba(26,255,122,.08)), 0 -24px 0 var(--motion-line, rgba(26,255,122,.08));
+}
+
+.motion-track.spark::after{
+left:50%;
+top:50%;
+width:1px;
+height:100%;
+background:linear-gradient(180deg, transparent, var(--motion-c, rgba(26,255,122,.28)), transparent);
+transform:translate(-50%, -50%);
+}
+
+body > :not(.motion-layer){
+position:relative;
+z-index:1;
+}
+
+nav{
+z-index:9999 !important;
+}
+
+.motion-home{--motion-c:rgba(26,255,122,.28);--motion-line:rgba(26,255,122,.055);--motion-sweep:rgba(26,255,122,.045);--motion-glow:rgba(26,255,122,.1);}
+.motion-glow{--motion-c:rgba(255,107,107,.3);--motion-line:rgba(255,107,107,.055);--motion-sweep:rgba(255,107,107,.04);--motion-glow:rgba(255,107,107,.12);}
+.motion-baby{--motion-c:rgba(255,206,218,.34);--motion-line:rgba(255,206,218,.055);--motion-sweep:rgba(255,236,190,.05);--motion-glow:rgba(255,206,218,.12);}
+.motion-forever{--motion-c:rgba(212,165,116,.34);--motion-line:rgba(212,165,116,.055);--motion-sweep:rgba(212,165,116,.045);--motion-glow:rgba(212,165,116,.12);}
+.motion-journey{--motion-c:rgba(80,180,255,.32);--motion-line:rgba(80,180,255,.055);--motion-sweep:rgba(80,180,255,.045);--motion-glow:rgba(80,180,255,.12);}
+.motion-creator{--motion-c:rgba(180,120,255,.32);--motion-line:rgba(180,120,255,.055);--motion-sweep:rgba(180,120,255,.045);--motion-glow:rgba(180,120,255,.12);}
+.motion-social,.motion-contact{--motion-c:rgba(26,255,122,.3);--motion-line:rgba(0,190,255,.055);--motion-sweep:rgba(26,255,122,.045);--motion-glow:rgba(26,255,122,.12);}
+
+@keyframes slowSweep{0%{transform:translate3d(-5%, -2%, 0) rotate(0deg);}100%{transform:translate3d(5%, 3%, 0) rotate(2deg);}}
+@keyframes gridBreathe{0%{opacity:.28; transform:scale(1);}100%{opacity:.58; transform:scale(1.04);}}
+@keyframes slowFloat{0%{transform:translate3d(0,0,0) rotate(var(--rot, 0deg));}45%{transform:translate3d(26px,-34px,0) rotate(calc(var(--rot, 0deg) + 4deg));}100%{transform:translate3d(-18px,28px,0) rotate(calc(var(--rot, 0deg) - 3deg));}}
+
+@media(max-width:700px){
+.motion-layer{opacity:.42;}
+.motion-track{transform:scale(.76) rotate(var(--rot, 0deg));}
 }
 
 </style>
@@ -454,6 +640,8 @@ padding:26px 20px !important;
 </head>
 
 <body>
+
+<div class="motion-layer motion-contact" aria-hidden="true"><span class="motion-track frame" style="--x:8%;--y:20%;--w:220px;--h:120px;--rot:-7deg;--speed:44s"></span><span class="motion-track timeline" style="--x:72%;--y:20%;--w:260px;--h:80px;--rot:6deg;--speed:46s"></span><span class="motion-track wave" style="--x:58%;--y:74%;--w:250px;--h:90px;--rot:-3deg;--speed:48s"></span></div>
 
 <nav>
 
@@ -520,37 +708,37 @@ Choose Category
 
 <option>
 
-Transformation
+Glow Stories
 
 </option>
 
 <option>
 
-Creator
+Creator Cut
 
 </option>
 
 <option>
 
-Trips
+Journey Films
 
 </option>
 
 <option>
 
-Anniversary
+Forever Frames
 
 </option>
 
 <option>
 
-Baby Shower
+Little Beginnings
 
 </option>
 
 <option>
 
-Social Media
+Social Spark
 
 </option>
 

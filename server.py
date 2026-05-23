@@ -8,12 +8,12 @@ import os
 import smtplib
 
 BASE_DIR = Path(__file__).resolve().parent
-MAIL_TO = os.environ.get("MAIL_TO", "editorsforyouagency@gmail.com")
-SMTP_HOST = os.environ.get("SMTP_HOST", "smtp.gmail.com")
-SMTP_PORT = int(os.environ.get("SMTP_PORT", "587"))
-SMTP_USERNAME = os.environ.get("SMTP_USERNAME", "")
-SMTP_PASSWORD = os.environ.get("SMTP_PASSWORD", "")
-MAIL_FROM = os.environ.get("MAIL_FROM", SMTP_USERNAME or MAIL_TO)
+MAIL_TO = os.environ.get("MAIL_TO", "editorsforyouagency@gmail.com").strip()
+SMTP_HOST = os.environ.get("SMTP_HOST", "smtp.gmail.com").strip()
+SMTP_PORT = int(os.environ.get("SMTP_PORT", "587").strip())
+SMTP_USERNAME = os.environ.get("SMTP_USERNAME", "").strip()
+SMTP_PASSWORD = os.environ.get("SMTP_PASSWORD", "").strip().replace(" ", "")
+MAIL_FROM = os.environ.get("MAIL_FROM", SMTP_USERNAME or MAIL_TO).strip()
 
 
 class EditorsForYouHandler(SimpleHTTPRequestHandler):
@@ -41,11 +41,19 @@ class EditorsForYouHandler(SimpleHTTPRequestHandler):
 
         try:
             send_contact_email(name, email, phone, category, project)
-        except Exception as exc:
+        except smtplib.SMTPAuthenticationError:
             self.send_response(HTTPStatus.INTERNAL_SERVER_ERROR)
             self.send_header("Content-Type", "text/html; charset=utf-8")
             self.end_headers()
-            self.wfile.write(render_error(exc).encode("utf-8"))
+            self.wfile.write(render_error(gmail_auth_message()).encode("utf-8"))
+            return
+        except Exception:
+            self.send_response(HTTPStatus.INTERNAL_SERVER_ERROR)
+            self.send_header("Content-Type", "text/html; charset=utf-8")
+            self.end_headers()
+            self.wfile.write(
+                render_error("The message could not be sent right now. Please try again later.").encode("utf-8")
+            )
             return
 
         self.send_response(HTTPStatus.SEE_OTHER)
@@ -79,8 +87,16 @@ def send_contact_email(name, email, phone, category, project):
         smtp.send_message(message)
 
 
-def render_error(exc):
-    details = html.escape(str(exc))
+def gmail_auth_message():
+    return (
+        "Gmail rejected the SMTP login. Set SMTP_USERNAME to the Gmail address "
+        "and SMTP_PASSWORD to a Google app password, not your normal Gmail password. "
+        "After changing environment variables, restart or redeploy the site."
+    )
+
+
+def render_error(message):
+    details = html.escape(str(message))
     return f"""
 <!DOCTYPE html>
 <html lang="en">

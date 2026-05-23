@@ -43,3 +43,15 @@ $env:SMTP_PORT="587"
 ## Important
 
 For Vercel, deploy the `api/contact.py` file and add the same SMTP values in Project Settings > Environment Variables. The form will only work from a server URL, not by double-clicking `contact.html` directly.
+## Fix Gmail 535 BadCredentials Error
+
+If you see `535 Username and Password not accepted`, Gmail rejected the SMTP login.
+
+Check these:
+
+- `SMTP_USERNAME` must be the full Gmail address, for example `editorsforyouagency@gmail.com`.
+- `SMTP_PASSWORD` must be a Google app password, not your normal Gmail password.
+- Do not include quotes in the Vercel value.
+- Spaces in app passwords are okay when copied from Google, but the backend removes them automatically.
+- After changing Vercel Environment Variables, redeploy the project.
+- App passwords require 2-Step Verification on the Gmail account.

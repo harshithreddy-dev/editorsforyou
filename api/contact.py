@@ -5,12 +5,12 @@ import html
 import os
 import smtplib
 
-MAIL_TO = os.environ.get("MAIL_TO", "editorsforyouagency@gmail.com")
-SMTP_HOST = os.environ.get("SMTP_HOST", "smtp.gmail.com")
-SMTP_PORT = int(os.environ.get("SMTP_PORT", "587"))
-SMTP_USERNAME = os.environ.get("SMTP_USERNAME", "")
-SMTP_PASSWORD = os.environ.get("SMTP_PASSWORD", "")
-MAIL_FROM = os.environ.get("MAIL_FROM", SMTP_USERNAME or MAIL_TO)
+MAIL_TO = os.environ.get("MAIL_TO", "editorsforyouagency@gmail.com").strip()
+SMTP_HOST = os.environ.get("SMTP_HOST", "smtp.gmail.com").strip()
+SMTP_PORT = int(os.environ.get("SMTP_PORT", "587").strip())
+SMTP_USERNAME = os.environ.get("SMTP_USERNAME", "").strip()
+SMTP_PASSWORD = os.environ.get("SMTP_PASSWORD", "").strip().replace(" ", "")
+MAIL_FROM = os.environ.get("MAIL_FROM", SMTP_USERNAME or MAIL_TO).strip()
 
 
 class handler(BaseHTTPRequestHandler):
@@ -31,8 +31,14 @@ class handler(BaseHTTPRequestHandler):
 
         try:
             send_contact_email(name, email, phone, category, project)
-        except Exception as exc:
-            self.respond(500, render_error(str(exc)))
+        except smtplib.SMTPAuthenticationError:
+            self.respond(500, render_error(gmail_auth_message()))
+            return
+        except Exception:
+            self.respond(
+                500,
+                render_error("The message could not be sent right now. Please try again later."),
+            )
             return
 
         self.send_response(303)
@@ -77,8 +83,16 @@ def send_contact_email(name, email, phone, category, project):
         smtp.send_message(message)
 
 
+def gmail_auth_message():
+    return (
+        "Gmail rejected the SMTP login. In Vercel, set SMTP_USERNAME to the Gmail "
+        "address and SMTP_PASSWORD to a Google app password, not your normal Gmail "
+        "password. After changing environment variables, redeploy the site."
+    )
+
+
 def render_error(message):
-    details = html.escape(message)
+    details = html.escape(str(message))
     return f"""
 <!DOCTYPE html>
 <html lang="en">
