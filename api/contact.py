@@ -1,13 +1,10 @@
 from email.message import EmailMessage
-from http import HTTPStatus
-from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
-from pathlib import Path
+from http.server import BaseHTTPRequestHandler
 from urllib.parse import parse_qs
 import html
 import os
 import smtplib
 
-BASE_DIR = Path(__file__).resolve().parent
 MAIL_TO = os.environ.get("MAIL_TO", "editorsforyouagency@gmail.com")
 SMTP_HOST = os.environ.get("SMTP_HOST", "smtp.gmail.com")
 SMTP_PORT = int(os.environ.get("SMTP_PORT", "587"))
@@ -16,15 +13,8 @@ SMTP_PASSWORD = os.environ.get("SMTP_PASSWORD", "")
 MAIL_FROM = os.environ.get("MAIL_FROM", SMTP_USERNAME or MAIL_TO)
 
 
-class EditorsForYouHandler(SimpleHTTPRequestHandler):
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, directory=str(BASE_DIR), **kwargs)
-
+class handler(BaseHTTPRequestHandler):
     def do_POST(self):
-        if self.path.rstrip("/") not in ("/contact", "/api/contact"):
-            self.send_error(HTTPStatus.NOT_FOUND, "Not found")
-            return
-
         length = int(self.headers.get("Content-Length", "0"))
         raw_body = self.rfile.read(length).decode("utf-8", errors="replace")
         form = {key: values[0].strip() for key, values in parse_qs(raw_body).items()}
@@ -36,27 +26,35 @@ class EditorsForYouHandler(SimpleHTTPRequestHandler):
         project = form.get("project", "")
 
         if not name or not email:
-            self.send_error(HTTPStatus.BAD_REQUEST, "Name and email are required")
+            self.respond(400, render_error("Name and email are required."))
             return
 
         try:
             send_contact_email(name, email, phone, category, project)
         except Exception as exc:
-            self.send_response(HTTPStatus.INTERNAL_SERVER_ERROR)
-            self.send_header("Content-Type", "text/html; charset=utf-8")
-            self.end_headers()
-            self.wfile.write(render_error(exc).encode("utf-8"))
+            self.respond(500, render_error(str(exc)))
             return
 
-        self.send_response(HTTPStatus.SEE_OTHER)
+        self.send_response(303)
         self.send_header("Location", "/thankyou.html")
         self.end_headers()
+
+    def do_GET(self):
+        self.send_response(303)
+        self.send_header("Location", "/contact.html")
+        self.end_headers()
+
+    def respond(self, status, body):
+        self.send_response(status)
+        self.send_header("Content-Type", "text/html; charset=utf-8")
+        self.end_headers()
+        self.wfile.write(body.encode("utf-8"))
 
 
 def send_contact_email(name, email, phone, category, project):
     if not SMTP_USERNAME or not SMTP_PASSWORD:
         raise RuntimeError(
-            "SMTP_USERNAME and SMTP_PASSWORD are not set. Use an app password for Gmail."
+            "SMTP_USERNAME and SMTP_PASSWORD are not set in Vercel Environment Variables."
         )
 
     message = EmailMessage()
@@ -79,8 +77,8 @@ def send_contact_email(name, email, phone, category, project):
         smtp.send_message(message)
 
 
-def render_error(exc):
-    details = html.escape(str(exc))
+def render_error(message):
+    details = html.escape(message)
     return f"""
 <!DOCTYPE html>
 <html lang="en">
@@ -94,25 +92,15 @@ main{{max-width:620px;background:rgba(20,20,20,.85);border:1px solid rgba(26,255
 h1{{color:#1aff7a;font-size:2rem;margin:0 0 14px}}
 p{{color:#ccc;line-height:1.6}}
 a{{color:#1aff7a}}
-code{{color:#fff}}
 </style>
 </head>
 <body>
 <main>
 <h1>Could not send message</h1>
 <p>{details}</p>
-<p>Check your SMTP environment variables, then try again.</p>
+<p>Check your email settings, then try again.</p>
 <p><a href="/contact.html">Back to contact form</a></p>
 </main>
 </body>
 </html>
 """
-
-
-if __name__ == "__main__":
-    host = os.environ.get("HOST", "127.0.0.1")
-    port = int(os.environ.get("PORT", "8000"))
-    server = ThreadingHTTPServer((host, port), EditorsForYouHandler)
-    print(f"Editors For You site running at http://{host}:{port}")
-    print("Press Ctrl+C to stop.")
-    server.serve_forever()

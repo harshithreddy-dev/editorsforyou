@@ -3,7 +3,7 @@
 This replaces FormSubmit with `server.py`, a small Python server that:
 
 - serves your existing HTML files
-- accepts the contact form at `/contact`
+- accepts the contact form at `/api/contact`
 - sends the form details to your email through SMTP
 - redirects users to `thankyou.html`
 
@@ -42,4 +42,4 @@ $env:SMTP_PORT="587"
 
 ## Important
 
-The form will only work when the site is opened through the Python server URL, not by double-clicking `contact.html` directly. If you deploy the site online, the host must support running Python, such as a VPS, Render, Railway, or similar backend hosting.
+For Vercel, deploy the `api/contact.py` file and add the same SMTP values in Project Settings > Environment Variables. The form will only work from a server URL, not by double-clicking `contact.html` directly.
