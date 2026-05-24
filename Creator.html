@@ -205,7 +205,8 @@ translateY(
 }
 
 
-.project video{
+.project video,
+.project iframe{
 
 width:
 100%;
@@ -586,7 +587,8 @@ padding:56px 6vw !important;
 max-width:320px !important;
 }
 
-.project video{
+.project video,
+.project iframe{
 height:420px !important;
 }
 
@@ -627,7 +629,8 @@ font-size:clamp(2.1rem,12vw,3.25rem) !important;
 padding:22px !important;
 }
 
-.project video{
+.project video,
+.project iframe{
 height:360px !important;
 }
 
@@ -1053,7 +1056,8 @@ body.theme-creator{
   max-width:520px !important;
 }
 
-.project video{
+.project video,
+.project iframe{
   width:100% !important;
   height:auto !important;
   aspect-ratio:16 / 9 !important;
@@ -1372,6 +1376,11 @@ body.theme-baby .pricing-button{
     height:70vw !important;
   }
 }
+
+.project iframe{
+  border:0 !important;
+  display:block !important;
+}
 </style>
 
 </head>
@@ -1446,15 +1455,17 @@ Your audience connects when your content carries your real voice. We refine your
 
 <div class="project">
 
-<video controls>
-
-<source src="project1.mp4">
-
-</video>
+<iframe
+src="https://www.youtube.com/embed/YNkieuOtvwg?si=n0spKi0ZBvtQv4eP"
+title="Sleep experiment"
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+referrerpolicy="strict-origin-when-cross-origin"
+allowfullscreen>
+</iframe>
 
 <p>
 
-Project 1
+Sleep experiment
 
 </p>
 
@@ -1464,15 +1475,17 @@ Project 1
 
 <div class="project">
 
-<video controls>
-
-<source src="project2.mp4">
-
-</video>
+<iframe
+src="https://www.youtube.com/embed/82IstjBC0ks?si=YHNDPOtCYe0zfd_7"
+title="Trend Sync Edit"
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+referrerpolicy="strict-origin-when-cross-origin"
+allowfullscreen>
+</iframe>
 
 <p>
 
-Project 2
+Trend Sync Edit
 
 </p>
 
@@ -1671,5 +1684,7 @@ window.addEventListener("pageshow", function () {
 </body>
 
 </html>
+
+
 
 

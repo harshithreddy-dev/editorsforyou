@@ -248,7 +248,8 @@ translateY(
 
 /* VIDEO */
 
-.project video{
+.project video,
+.project iframe{
 
 width:
 100%;
@@ -619,7 +620,8 @@ padding:56px 6vw !important;
 max-width:320px !important;
 }
 
-.project video{
+.project video,
+.project iframe{
 height:420px !important;
 }
 
@@ -660,7 +662,8 @@ font-size:clamp(2.1rem,12vw,3.25rem) !important;
 padding:22px !important;
 }
 
-.project video{
+.project video,
+.project iframe{
 height:360px !important;
 }
 
@@ -1086,7 +1089,8 @@ body.theme-creator{
   max-width:520px !important;
 }
 
-.project video{
+.project video,
+.project iframe{
   width:100% !important;
   height:auto !important;
   aspect-ratio:16 / 9 !important;
@@ -1405,6 +1409,11 @@ body.theme-baby .pricing-button{
     height:70vw !important;
   }
 }
+
+.project iframe{
+  border:0 !important;
+  display:block !important;
+}
 </style>
 
 </head>
@@ -1480,15 +1489,17 @@ Before the little one arrives, love already fills the room. We capture the bless
 
 <div class="project">
 
-<video controls>
-
-<source src="project1.mp4">
-
-</video>
+<iframe
+src="https://www.youtube.com/embed/NBxqyXwvlF8"
+title="Birthday Memory Film"
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+referrerpolicy="strict-origin-when-cross-origin"
+allowfullscreen>
+</iframe>
 
 <p>
 
-Project 1
+Birthday Memory Film
 
 </p>
 
@@ -1702,5 +1713,6 @@ window.addEventListener("pageshow", function () {
 </body>
 
 </html>
+
 
 

@@ -465,6 +465,25 @@ color:
 
 }
 
+/* Make service cards equal height and keep long text from enlarging a single card */
+.grid > a{
+  display:block;
+  height:100%;
+}
+
+.card{
+  display:flex;
+  flex-direction:column;
+  height:100%;
+}
+
+.card p{
+  flex:1 1 auto;
+  overflow:hidden;
+  hyphens:auto;
+  word-break:break-word;
+}
+
 
 /* ---------- FOOTER ---------- */
 
