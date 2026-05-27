@@ -23,14 +23,20 @@ class handler(BaseHTTPRequestHandler):
         email = form.get("email", "")
         phone = form.get("phone", "")
         category = form.get("category", "")
-        project = form.get("project", "")
+        subcategory = form.get("subcategory", "")
+        tier = form.get("tier", "")
+        duration = form.get("duration", "")
+        pricing_base = form.get("pricing_base", "")
+        discount = form.get("discount", "")
+        calculated_price = form.get("calculated_price", "")
+        project = form.get("message", "") or form.get("project", "")
 
         if not name or not email:
             self.respond(400, render_error("Name and email are required."))
             return
 
         try:
-            send_contact_email(name, email, phone, category, project)
+            send_contact_email(name, email, phone, category, subcategory, tier, duration, pricing_base, discount, calculated_price, project)
         except smtplib.SMTPAuthenticationError:
             self.respond(500, render_error(gmail_auth_message()))
             return
@@ -57,7 +63,7 @@ class handler(BaseHTTPRequestHandler):
         self.wfile.write(body.encode("utf-8"))
 
 
-def send_contact_email(name, email, phone, category, project):
+def send_contact_email(name, email, phone, category, subcategory, tier, duration, pricing_base, discount, calculated_price, project):
     if not SMTP_USERNAME or not SMTP_PASSWORD:
         raise RuntimeError(
             "SMTP_USERNAME and SMTP_PASSWORD are not set in Vercel Environment Variables."
@@ -73,7 +79,13 @@ def send_contact_email(name, email, phone, category, project):
         f"Name: {name}\n"
         f"Email: {email}\n"
         f"Phone: {phone or 'Not provided'}\n"
-        f"Category: {category or 'Not selected'}\n\n"
+        f"Category: {category or 'Not selected'}\n"
+        f"Sub-category: {subcategory or 'Not selected'}\n"
+        f"Tier: {tier or 'Not selected'}\n"
+        f"Duration: {duration or 'Not provided'}\n"
+        f"Pricing base: {pricing_base or 'Not provided'}\n"
+        f"Discount: {discount or '0'}\n"
+        f"Calculated price: {calculated_price or 'Not calculated'}\n\n"
         f"Project details:\n{project or 'Not provided'}\n"
     )
 

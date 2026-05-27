@@ -1,0 +1,34 @@
+{
+  "redirects": [
+    {
+      "source": "/Transformation.html",
+      "destination": "/transformation-growth.html",
+      "permanent": true
+    },
+    {
+      "source": "/Baby%20Shower.html",
+      "destination": "/celebration-beginnings.html",
+      "permanent": true
+    },
+    {
+      "source": "/Anniversary.html",
+      "destination": "/celebration-frames.html",
+      "permanent": true
+    },
+    {
+      "source": "/Trips.html",
+      "destination": "/journey-destination.html",
+      "permanent": true
+    },
+    {
+      "source": "/SMM.html",
+      "destination": "/social-business.html",
+      "permanent": true
+    },
+    {
+      "source": "/Creator.html",
+      "destination": "/creator-shortform.html",
+      "permanent": true
+    }
+  ]
+}

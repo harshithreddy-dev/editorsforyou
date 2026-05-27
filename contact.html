@@ -1,49 +1,48 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-
-<title>
-
-Contact â€” Editors For You
-
-</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;600&display=swap"
-rel="stylesheet">
-
+<title>Contact - Editors For You</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
 
+
+/* ---------- RESET ---------- */
+
 *{
+
 margin:0;
+
 padding:0;
+
 box-sizing:border-box;
+
 }
 
+
 body{
+
+font-family:
+Inter,
+sans-serif;
 
 background:
 linear-gradient(
 135deg,
-#050505,
-#0f1812
+#050505 0%,
+#0c1811 50%,
+#050505 100%
 );
 
-font-family:
-Inter;
-
-color:
-white;
-
 overflow-x:hidden;
-overflow-y:auto;
+
+color:white;
 
 }
 
-/* NAV */
+
+/* ---------- NAV ---------- */
 
 nav{
 
@@ -56,10 +55,17 @@ right:0;
 padding:
 24px 6vw;
 
-display:flex;
+display:
+flex;
 
 justify-content:
 space-between;
+
+align-items:
+center;
+
+z-index:
+9999;
 
 background:
 rgba(
@@ -84,56 +90,271 @@ border-bottom:
 
 }
 
+
 nav b{
+
+font-size:
+1.2rem;
+
+letter-spacing:
+1px;
+
+font-weight:
+700;
 
 color:
 #1aff7a;
 
 }
 
-/* HERO */
+
+nav a{
+
+text-decoration:
+none;
+
+color:
+white;
+
+}
+
+
+/* ---------- HERO ---------- */
 
 .hero{
 
 min-height:
 100vh;
 
-display:flex;
+display:
+flex;
 
-justify-content:center;
+align-items:
+center;
 
-align-items:center;
+justify-content:
+center;
+
+text-align:
+center;
 
 padding:
-100px 20px;
+0 6vw;
+
+position:
+relative;
 
 }
 
-.form-box{
+
+.hero::before{
+
+content:"";
+
+position:
+absolute;
 
 width:
-100%;
+500px;
 
-max-width:
-700px;
+height:
+500px;
 
 background:
+rgba(
+26,
+255,
+122,
+.08
+);
+
+filter:
+blur(
+120px
+);
+
+border-radius:
+50%;
+
+z-index:
+0;
+
+}
+
+
+.hero div{
+
+position:
+relative;
+
+z-index:
+2;
+
+}
+
+
+.hero h1{
+
+font-family:
+'Playfair Display',
+serif;
+
+font-size:
+clamp(
+4rem,
+11vw,
+8rem
+);
+
+font-weight:
+900;
+
+line-height:
+1;
+
+color:
+#1aff7a;
+
+text-shadow:
+0 0 40px rgba(
+26,
+255,
+122,
+.08
+);
+
+}
+
+
+.hero p{
+
+margin-top:
+30px;
+
+font-size:
+1rem;
+
+letter-spacing:
+2px;
+
+color:
+#aaa;
+
+}
+
+
+.btn{
+
+display:
+inline-block;
+
+padding:
+18px 36px;
+
+margin-top:
+30px;
+
+border-radius:
+40px;
+
+text-decoration:
+none;
+
+font-weight:
+700;
+
+background:
+linear-gradient(
+135deg,
+#1aff7a,
+#0bd95f
+);
+
+color:
+black;
+
+transition:
+.3s ease;
+
+box-shadow:
+0 12px 35px rgba(
+26,
+255,
+122,
+.18
+);
+
+}
+
+
+.btn:hover{
+
+transform:
+translateY(
+-5px
+);
+
+box-shadow:
+0 20px 60px rgba(
+26,
+255,
+122,
+.25
+);
+
+}
+
+
+/* ---------- SERVICES ---------- */
+
+.grid{
+
+display:
+grid;
+
+grid-template-columns:
+repeat(
+auto-fit,
+minmax(
+300px,
+1fr
+)
+);
+
+gap:
+30px;
+
+padding:
+0 6vw 120px;
+
+}
+
+
+.card{
+
+padding:
+40px;
+
+border-radius:
+24px;
+
+background:
+linear-gradient(
+135deg,
 rgba(
 20,
 20,
 20,
-.75
-);
+.9
+),
 
-padding:
-50px;
+rgba(
+12,
+18,
+14,
+.95
+)
 
-border-radius:
-30px;
-
-backdrop-filter:
-blur(
-20px
 );
 
 border:
@@ -144,64 +365,173 @@ border:
 .08
 );
 
-box-shadow:
-0 30px 80px rgba(
-0,
-0,
-0,
-.4
+transition:
+.35s ease;
+
+backdrop-filter:
+blur(
+10px
 );
+
+position:
+relative;
+
+z-index:
+1;
 
 }
 
-h1{
 
-font-family:
-'Playfair Display';
+.card:hover{
 
-font-size:
-4rem;
+transform:
+translateY(
+-10px
+);
 
-color:
-#1aff7a;
+border-color:
+rgba(
+26,
+255,
+122,
+.3
+);
 
-margin-bottom:
-20px;
-
-text-shadow:
-0 0 25px rgba(
+box-shadow:
+0 25px 60px rgba(
 26,
 255,
 122,
 .12
 );
 
+background:
+linear-gradient(
+135deg,
+rgba(
+25,
+25,
+25,
+1
+),
+
+rgba(
+15,
+25,
+18,
+1
+)
+
+);
+
 }
 
-.subtitle{
+
+.card h3{
+
+margin-bottom:
+20px;
+
+font-size:
+1.4rem;
+
+color:
+#0bd95f;
+
+}
+
+
+.card p{
+
+line-height:
+1.8;
 
 color:
 #aaa;
 
-margin-bottom:
-40px;
+}
+
+/* Make service cards equal height and keep long text from enlarging a single card */
+.grid > a{
+  display:block;
+  height:100%;
+}
+
+.card{
+  display:flex;
+  flex-direction:column;
+  height:100%;
+}
+
+.card p{
+  flex:1 1 auto;
+  overflow:hidden;
+  hyphens:auto;
+  word-break:break-word;
+}
+
+
+/* ---------- FOOTER ---------- */
+
+footer{
+
+padding:
+100px 6vw;
+
+text-align:
+center;
+
+background:
+rgba(
+10,
+10,
+10,
+.6
+);
+
+border-top:
+1px solid rgba(
+26,
+255,
+122,
+.08
+);
 
 }
 
-/* INPUTS */
 
-input,
-select,
-textarea{
+footer h2{
+
+font-size:
+2rem;
+
+margin-bottom:
+20px;
+
+}
+
+
+/* ---------- INPUTS ---------- */
+
+input{
+
+display:
+block;
 
 width:
 100%;
 
+max-width:
+420px;
+
+margin:
+12px auto;
+
 padding:
 18px;
 
-margin:
-12px 0;
+border-radius:
+14px;
 
 background:
 rgba(
@@ -216,40 +546,28 @@ border:
 26,
 255,
 122,
-.08
+.12
 );
-
-border-radius:
-14px;
 
 color:
 white;
 
-font-size:
-1rem;
+transition:
+.3s ease;
 
 }
 
-textarea{
 
-height:
-150px;
+input:focus{
 
-resize:none;
-
-}
-
-input:focus,
-select:focus,
-textarea:focus{
-
-outline:none;
+outline:
+none;
 
 border-color:
 #1aff7a;
 
 box-shadow:
-0 0 20px rgba(
+0 0 25px rgba(
 26,
 255,
 122,
@@ -258,52 +576,34 @@ box-shadow:
 
 }
 
-/* BUTTON */
 
-button{
+input::placeholder{
 
-width:
-100%;
-
-padding:
-18px;
-
-margin-top:
-20px;
-
-border:none;
-
-border-radius:
-40px;
-
-font-size:
-1rem;
-
-font-weight:
-700;
-
-background:
-linear-gradient(
-135deg,
-#1aff7a,
-#0bd95f
+color:
+rgba(
+255,
+255,
+255,
+.35
 );
-
-cursor:pointer;
-
-transition:
-.3s;
 
 }
 
-button:hover{
 
-transform:
-translateY(
--4px
-);
+/* ---------- MOBILE ---------- */
 
-}
+@media(
+max-width:768px
+){
+
+.hero h1{
+
+font-size:
+4rem;
+
+}
+
+}
 
 
 /* ---------- PREMIUM SCALE ---------- */
@@ -447,7 +747,8 @@ height:360px !important;
 .box{
 padding:26px 20px !important;
 }
-}
+}
+
 
 
 /* ---------- MOTION GRAPHICS ---------- */
@@ -1183,173 +1484,580 @@ body.theme-baby .pricing-button{
     height:70vw !important;
   }
 }
+
+
+
+/* ---------- PACKAGE SYSTEM ---------- */
+.nav-services{position:relative !important; display:inline-flex !important; align-items:center !important;}
+.nav-services-panel{
+  position:absolute !important;
+  top:calc(100% + 16px) !important;
+  left:50% !important;
+  transform:translateX(-50%) translateY(8px) !important;
+  width:min(760px, calc(100vw - 32px)) !important;
+  display:grid !important;
+  grid-template-columns:repeat(5, 1fr) !important;
+  gap:18px !important;
+  padding:22px !important;
+  border:1px solid rgba(255,255,255,.14) !important;
+  border-radius:18px !important;
+  background:rgba(0,0,0,.92) !important;
+  box-shadow:0 24px 70px rgba(0,0,0,.45) !important;
+  opacity:0 !important;
+  visibility:hidden !important;
+  pointer-events:none !important;
+  transition:opacity .28s ease, transform .28s ease, visibility .28s ease !important;
+}
+.nav-services:hover .nav-services-panel,
+.nav-services:focus-within .nav-services-panel{
+  opacity:1 !important;
+  visibility:visible !important;
+  pointer-events:auto !important;
+  transform:translateX(-50%) translateY(0) !important;
+}
+.nav-services-panel strong{
+  display:block !important;
+  color:var(--page-accent) !important;
+  font-size:.72rem !important;
+  line-height:1.35 !important;
+  margin-bottom:10px !important;
+  letter-spacing:.08em !important;
+}
+.nav-services-panel a{
+  display:block !important;
+  color:rgba(255,255,255,.74) !important;
+  font-size:.78rem !important;
+  line-height:1.45 !important;
+  margin:8px 0 !important;
+}
+.services-grid{
+  padding:34px 6vw 90px !important;
+}
+.services-grid .section-title{
+  padding:0 0 28px !important;
+}
+.service-category-grid{
+  display:grid !important;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr)) !important;
+  gap:22px !important;
+}
+.service-category{
+  padding:28px !important;
+  border-radius:18px !important;
+  border:1px solid var(--page-accent-soft) !important;
+  background:linear-gradient(135deg,rgba(20,20,20,.9),rgba(10,14,12,.95)) !important;
+  box-shadow:0 18px 48px rgba(0,0,0,.22) !important;
+}
+.service-category h3{
+  color:var(--page-accent) !important;
+  margin-bottom:12px !important;
+  letter-spacing:.08em !important;
+}
+.service-category p{
+  color:rgba(255,255,255,.7) !important;
+  line-height:1.65 !important;
+  margin-bottom:18px !important;
+}
+.subcategories{
+  display:grid !important;
+  gap:10px !important;
+}
+.subcategories a{
+  display:flex !important;
+  justify-content:space-between !important;
+  align-items:center !important;
+  padding:12px 14px !important;
+  border-radius:10px !important;
+  border:1px solid rgba(255,255,255,.1) !important;
+  color:white !important;
+  text-decoration:none !important;
+  background:rgba(255,255,255,.04) !important;
+}
+.subcategories a::after{content:"View" !important; color:var(--page-accent) !important; font-size:.74rem !important;}
+.package-intro{
+  padding:0 6vw 24px !important;
+  text-align:center !important;
+}
+.package-intro p{
+  max-width:780px !important;
+  margin:0 auto !important;
+  color:rgba(255,255,255,.7) !important;
+  line-height:1.75 !important;
+}
+.project iframe{
+  border:0 !important;
+  display:block !important;
+}
+.project video,
+.project iframe{
+  width:100% !important;
+  height:auto !important;
+  aspect-ratio:16 / 9 !important;
+  object-fit:cover !important;
+  border-radius:16px !important;
+}
+.project-empty{
+  min-height:220px !important;
+  display:grid !important;
+  place-items:center !important;
+  text-align:center !important;
+  border:1px dashed var(--page-accent-soft) !important;
+  border-radius:16px !important;
+  background:rgba(255,255,255,.035) !important;
+  color:rgba(255,255,255,.72) !important;
+}
+.tier-eyebrow{
+  color:rgba(255,255,255,.58) !important;
+  font-weight:700 !important;
+  margin-bottom:8px !important;
+  letter-spacing:.08em !important;
+}
+.pricing-card.tier-custom{
+  border-color:rgba(255,255,255,.18) !important;
+}
+.booking-form{
+  display:grid !important;
+  gap:20px !important;
+  text-align:left !important;
+}
+.booking-form fieldset{
+  border:1px solid rgba(255,255,255,.12) !important;
+  border-radius:18px !important;
+  padding:22px !important;
+  background:rgba(255,255,255,.035) !important;
+}
+.booking-form legend{
+  padding:0 8px !important;
+  color:var(--page-accent) !important;
+  font-weight:900 !important;
+  letter-spacing:.08em !important;
+}
+.booking-form label{
+  display:block !important;
+  margin:14px 0 8px !important;
+  color:rgba(255,255,255,.78) !important;
+  font-weight:700 !important;
+}
+.booking-form input,
+.booking-form select,
+.booking-form textarea{
+  max-width:none !important;
+  margin:0 0 12px !important;
+}
+.calculator-actions{
+  display:flex !important;
+  gap:12px !important;
+  flex-wrap:wrap !important;
+}
+.secondary-button,
+.submit-button{
+  width:auto !important;
+  border:none !important;
+  border-radius:999px !important;
+  padding:13px 24px !important;
+  font-weight:900 !important;
+  cursor:pointer !important;
+}
+.secondary-button{
+  background:rgba(255,255,255,.12) !important;
+  color:white !important;
+}
+.price-summary{
+  display:grid !important;
+  gap:10px !important;
+  color:rgba(255,255,255,.78) !important;
+}
+.price-summary strong,
+.price-summary .total{
+  color:white !important;
+}
+.price-summary .total strong{
+  color:var(--page-accent) !important;
+  font-size:1.35rem !important;
+}
+.terms,
+.disclaimer{
+  color:rgba(255,255,255,.58) !important;
+  line-height:1.6 !important;
+}
+@media(max-width:900px){
+  .nav-services{display:block !important; width:100% !important;}
+  .nav-services-panel{
+    position:static !important;
+    transform:none !important;
+    width:100% !important;
+    grid-template-columns:1fr 1fr !important;
+    margin-top:12px !important;
+  }
+}
+@media(max-width:560px){
+  .nav-services-panel{grid-template-columns:1fr !important;}
+}
+
+
+
+/* ---------- SERVICES DROPDOWN STABILITY ---------- */
+.nav-services{
+  padding:12px 0 !important;
+  margin:-12px 0 !important;
+}
+
+.nav-services-panel{
+  top:100% !important;
+  margin-top:0 !important;
+}
+
+.nav-services::after{
+  content:"" !important;
+  position:absolute !important;
+  left:-18px !important;
+  right:-18px !important;
+  top:100% !important;
+  height:20px !important;
+}
+
+
+
+/* ---------- FINAL SUB-CATEGORY VISUAL TUNING ---------- */
+body.subcat-longform{
+  --page-accent:#c995ff;
+  --page-accent-2:#f0a7ff;
+  --page-accent-soft:rgba(201,149,255,.34);
+  background:linear-gradient(135deg,#1d0738 0%,#5f18aa 54%,#9f63ff 100%) !important;
+}
+
+body.subcat-shortform{
+  --page-accent:#8fd0ff;
+  --page-accent-2:#d8a6ff;
+  --page-accent-soft:rgba(143,208,255,.32);
+  background:linear-gradient(135deg,#08294f 0%,#226fb7 54%,#7452d6 100%) !important;
+}
+
+body.subcat-beginnings{
+  --page-accent:#8f003d;
+  --page-accent-2:#ff4f93;
+  --page-accent-soft:rgba(216,27,96,.24);
+  background:linear-gradient(135deg,#f5e6d3 0%,#f0d5e0 50%,#ffe0e6 100%) !important;
+}
+
+body.subcat-frames{
+  --page-accent:#ffd08a;
+  --page-accent-2:#f4dfb4;
+  --page-accent-soft:rgba(255,208,138,.3);
+  background:linear-gradient(135deg,#2d1b1b 0%,#8b5a3c 54%,#5a1420 100%) !important;
+}
+
+body.subcat-growth{
+  --page-accent:#ff8585;
+  --page-accent-2:#ffb199;
+  --page-accent-soft:rgba(255,133,133,.32);
+  background:linear-gradient(135deg,#1a0a0a 0%,#6f2828 54%,#d95353 100%) !important;
+}
+
+body.subcat-lifestyle{
+  --page-accent:#ff9ec9;
+  --page-accent-2:#b9ffd8;
+  --page-accent-soft:rgba(255,158,201,.32);
+  background:linear-gradient(135deg,#35102c 0%,#9a5f9f 52%,#42a978 100%) !important;
+}
+
+body.subcat-destination{
+  --page-accent:#7dd0ff;
+  --page-accent-2:#c9efff;
+  --page-accent-soft:rgba(125,208,255,.3);
+  background:linear-gradient(135deg,#08111f 0%,#2464a8 54%,#50b4ff 100%) !important;
+}
+
+body.subcat-adventure{
+  --page-accent:#ffbc6b;
+  --page-accent-2:#7fe7ff;
+  --page-accent-soft:rgba(255,188,107,.3);
+  background:linear-gradient(135deg,#2a1806 0%,#a66d2f 52%,#ff8c42 100%) !important;
+}
+
+body.subcat-business{
+  --page-accent:#40ff95;
+  --page-accent-2:#e2ffe9;
+  --page-accent-soft:rgba(64,255,149,.28);
+  background:linear-gradient(135deg,#0c2114 0%,#1d7a3f 54%,#1aff7a 100%) !important;
+}
+
+body.subcat-brand{
+  --page-accent:#5ce7ff;
+  --page-accent-2:#88ffb8;
+  --page-accent-soft:rgba(92,231,255,.28);
+  background:linear-gradient(135deg,#06252c 0%,#1b8292 54%,#64ffba 100%) !important;
+}
+
+body[class*="subcat-"] .motion-layer{
+  opacity:.72 !important;
+}
+
+body[class*="subcat-"] .site-nav{
+  background:rgba(0,0,0,.7) !important;
+  border-bottom-color:rgba(255,255,255,.18) !important;
+}
+
+body[class*="subcat-"] .card,
+body[class*="subcat-"] .pricing-card,
+body[class*="subcat-"] .project-empty,
+body[class*="subcat-"] .nav-services-panel{
+  background:
+    linear-gradient(135deg,rgba(255,255,255,.085),rgba(255,255,255,.025)),
+    linear-gradient(135deg,rgba(20,20,24,.88),rgba(8,8,10,.92)) !important;
+  border-color:var(--page-accent-soft) !important;
+  box-shadow:0 28px 74px rgba(0,0,0,.32), 0 0 40px rgba(255,255,255,.035) !important;
+}
+
+body[class*="subcat-"] .hero h1,
+body[class*="subcat-"] .projects h2,
+body[class*="subcat-"] .section-title h2,
+body[class*="subcat-"] .pricing-card h3,
+body[class*="subcat-"] .pricing-rate,
+body[class*="subcat-"] .tier-eyebrow,
+body[class*="subcat-"] .package-intro p{
+  color:var(--page-accent) !important;
+  -webkit-text-fill-color:var(--page-accent) !important;
+  text-shadow:0 0 30px var(--page-accent-soft) !important;
+}
+
+body[class*="subcat-"] .hero p,
+body[class*="subcat-"] .section-title p,
+body[class*="subcat-"] .pricing-card p,
+body[class*="subcat-"] .pricing-features li,
+body[class*="subcat-"] .project p,
+body[class*="subcat-"] .project-empty p{
+  color:rgba(255,255,255,.86) !important;
+}
+
+body[class*="subcat-"] .pricing-card .price{
+  color:#ffffff !important;
+  -webkit-text-fill-color:#ffffff !important;
+  text-shadow:0 0 20px rgba(255,255,255,.18) !important;
+}
+
+body[class*="subcat-"] .pricing-button,
+body[class*="subcat-"] .footer-cta{
+  color:#050505 !important;
+  background:linear-gradient(135deg,var(--page-accent),var(--page-accent-2)) !important;
+  box-shadow:0 18px 44px var(--page-accent-soft) !important;
+}
+
+body.subcat-beginnings .hero h1,
+body.subcat-beginnings .projects h2,
+body.subcat-beginnings .section-title h2,
+body.subcat-beginnings .pricing-card h3,
+body.subcat-beginnings .pricing-rate,
+body.subcat-beginnings .tier-eyebrow,
+body.subcat-beginnings .package-intro p{
+  color:#8f003d !important;
+  -webkit-text-fill-color:#8f003d !important;
+  text-shadow:0 1px 0 rgba(255,255,255,.36), 0 0 22px rgba(216,27,96,.18) !important;
+}
+
+body.subcat-beginnings .hero p,
+body.subcat-beginnings .section-title p,
+body.subcat-beginnings .pricing-card p,
+body.subcat-beginnings .pricing-features li,
+body.subcat-beginnings .project p,
+body.subcat-beginnings .project-empty p{
+  color:#4f1230 !important;
+}
+
+body.subcat-beginnings .pricing-card,
+body.subcat-beginnings .card,
+body.subcat-beginnings .project-empty{
+  background:linear-gradient(135deg,rgba(255,255,255,.78),rgba(245,220,230,.9)) !important;
+  border-color:rgba(212,81,109,.2) !important;
+}
+
+body.subcat-beginnings .pricing-card .price{
+  color:#6f002f !important;
+  -webkit-text-fill-color:#6f002f !important;
+  text-shadow:0 1px 0 rgba(255,255,255,.42) !important;
+}
+
+body.subcat-beginnings .pricing-button{
+  color:#ffffff !important;
+  background:linear-gradient(135deg,#b0004b,#ff4f93) !important;
+  box-shadow:0 18px 42px rgba(216,27,96,.36) !important;
+}
+
+/* Keep the Services dropdown reachable while moving from the label into the panel. */
+.nav-services{
+  padding:12px 0 !important;
+  margin:-12px 0 !important;
+}
+
+.nav-services-panel{
+  top:100% !important;
+  margin-top:0 !important;
+  z-index:10000 !important;
+}
+
+.nav-services::after{
+  content:"" !important;
+  position:absolute !important;
+  left:-22px !important;
+  right:-22px !important;
+  top:100% !important;
+  height:24px !important;
+}
+
+
+
+/* ---------- PREMIUM CONTACT FORM FIX ---------- */
+.booking-form input,
+.booking-form select,
+.booking-form textarea{
+  width:100% !important;
+  appearance:none !important;
+  -webkit-appearance:none !important;
+  background:linear-gradient(135deg,rgba(12,14,16,.96),rgba(24,28,30,.92)) !important;
+  border:1px solid rgba(255,255,255,.16) !important;
+  color:#ffffff !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.04), 0 14px 34px rgba(0,0,0,.18) !important;
+}
+
+.booking-form select{
+  background-image:
+    linear-gradient(45deg,transparent 50%,var(--page-accent) 50%),
+    linear-gradient(135deg,var(--page-accent) 50%,transparent 50%),
+    linear-gradient(135deg,rgba(12,14,16,.96),rgba(24,28,30,.92)) !important;
+  background-position:
+    calc(100% - 22px) calc(50% - 3px),
+    calc(100% - 16px) calc(50% - 3px),
+    0 0 !important;
+  background-size:6px 6px,6px 6px,100% 100% !important;
+  background-repeat:no-repeat !important;
+  padding-right:46px !important;
+}
+
+.booking-form select option{
+  background:#101214 !important;
+  color:#ffffff !important;
+}
+
+.booking-form input::placeholder,
+.booking-form textarea::placeholder{
+  color:rgba(255,255,255,.42) !important;
+}
+
+.booking-form input:focus,
+.booking-form select:focus,
+.booking-form textarea:focus{
+  border-color:var(--page-accent) !important;
+  box-shadow:0 0 0 3px var(--page-accent-soft), 0 16px 38px rgba(0,0,0,.22) !important;
+  outline:none !important;
+}
+
+.booking-form fieldset{
+  background:linear-gradient(135deg,rgba(255,255,255,.06),rgba(255,255,255,.025)) !important;
+  border-color:rgba(255,255,255,.16) !important;
+}
+
+.auto-discount-note{
+  margin:8px 0 16px !important;
+  padding:12px 14px !important;
+  border-radius:12px !important;
+  background:rgba(26,255,122,.08) !important;
+  border:1px solid var(--page-accent-soft) !important;
+  color:rgba(255,255,255,.76) !important;
+  line-height:1.55 !important;
+}
+
 </style>
-
 </head>
-
 <body class="theme-contact">
-
-<div class="motion-layer motion-contact" aria-hidden="true"><span class="motion-track frame" style="--x:8%;--y:20%;--w:220px;--h:120px;--rot:-7deg;--speed:15s"></span><span class="motion-track timeline" style="--x:72%;--y:20%;--w:260px;--h:80px;--rot:6deg;--speed:15s"></span><span class="motion-track wave" style="--x:58%;--y:74%;--w:250px;--h:90px;--rot:-3deg;--speed:16s"></span></div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<div class="motion-layer motion-contact" aria-hidden="true"><span class="motion-track frame" style="--x:8%;--y:20%;--w:230px;--h:124px;--rot:-7deg;--speed:14s"></span><span class="motion-track timeline" style="--x:66%;--y:22%;--w:280px;--h:80px;--rot:6deg;--speed:15s"></span><span class="motion-track wave" style="--x:18%;--y:74%;--w:260px;--h:90px;--rot:4deg;--speed:16s"></span></div>
 
 <nav class="site-nav">
   <a href="index.html" class="nav-brand">EDITORS FOR YOU</a>
   <div class="nav-links">
     <a href="index.html">Home</a>
-    <a href="index.html#services">Services</a>
+    <div class="nav-services">
+      <a href="index.html#services">Services</a>
+      <div class="nav-services-panel">
+        
+        <div>
+          <strong>Creator Package</strong>
+          <a href="creator-longform.html">Long Form Content</a><a href="creator-shortform.html">Short Form Content</a>
+        </div>
+        <div>
+          <strong>Celebration Package</strong>
+          <a href="celebration-beginnings.html">Little Beginnings</a><a href="celebration-frames.html">Forever Frames</a>
+        </div>
+        <div>
+          <strong>Transformation Package</strong>
+          <a href="transformation-growth.html">Personal Growth</a><a href="transformation-lifestyle.html">Lifestyle Transformation</a>
+        </div>
+        <div>
+          <strong>Journey Package</strong>
+          <a href="journey-destination.html">Destination Films</a><a href="journey-adventure.html">Adventure & Experiences</a>
+        </div>
+        <div>
+          <strong>Social Spark Package</strong>
+          <a href="social-business.html">Small Business</a><a href="social-brand.html">Established Brand</a>
+        </div>
+      </div>
+    </div>
     <a href="index.html#about">About Us</a>
     <a href="contact.html">Contact</a>
   </div>
   <a href="contact.html" class="nav-cta">Book Now</a>
 </nav>
-
-
 <section class="hero">
-
 <div class="form-box">
-
-<h1>
-
-Start Your Story.
-
-</h1>
-
-<p class="subtitle">
-
-Tell us your vision.
-We'll turn it into emotion.
-
-</p>
-
-
-<form
-action="/api/contact"
-method="POST">
-
-
-<input
-type="text"
-name="name"
-placeholder="Full Name"
-required>
-
-
-<input
-type="email"
-name="email"
-placeholder="Email Address"
-required>
-
-
-<input
-type="tel"
-name="phone"
-placeholder="Phone Number">
-
-
-<select
-name="category">
-
-<option>
-
-Choose Category
-
-</option>
-
-<option>
-
-Glow Stories
-
-</option>
-
-<option>
-
-Creator Cut
-
-</option>
-
-<option>
-
-Journey Films
-
-</option>
-
-<option>
-
-Forever Frames
-
-</option>
-
-<option>
-
-Little Beginnings
-
-</option>
-
-<option>
-
-Social Spark
-
-</option>
-
-</select>
-
-
-<textarea
-name="project"
-placeholder="Describe your project...">
-
-</textarea>
-
-
-<button>
-
-Submit Project
-
-</button>
-
+<h1>Start Your Story.</h1>
+<p class="subtitle">Choose your package. See your estimate. Tell us what you want to create.</p>
+<form id="booking-form" class="booking-form" action="/api/contact" method="POST">
+  <fieldset>
+    <legend>Your Details</legend>
+    <input type="text" name="name" placeholder="Full Name" required>
+    <input type="email" name="email" placeholder="Email Address" required>
+    <input type="tel" name="phone" placeholder="Phone Number">
+    <textarea name="message" placeholder="Any additional details..."></textarea>
+  </fieldset>
+  <fieldset>
+    <legend>Select Your Package</legend>
+    <label for="category">What type of content are you creating?</label>
+    <select id="category" name="category" required></select>
+    <label for="subcategory">Choose your sub-category:</label>
+    <select id="subcategory" name="subcategory" required></select>
+    <label for="tier">Select your tier:</label>
+    <select id="tier" name="tier" required></select>
+    <div id="customizable-section" style="display:none;">
+      <h3>Let's customize your package</h3>
+      <label for="duration">Video Duration (in minutes):</label>
+      <input type="number" id="duration" name="duration" min="1" max="300" placeholder="e.g., 10">
+      <label for="pricing-base">Select your tier pricing base:</label>
+      <select id="pricing-base" name="pricing_base">
+        <option value="">-- Select Tier Base --</option>
+        <option value="600">Standard Rate (Rs. 600/minute)</option>
+        <option value="900">Premium Rate (Rs. 900/minute)</option>
+      </select>
+      <p class="auto-discount-note">Volume discount is applied automatically as the duration increases.</p>
+      <input type="hidden" id="discount" name="discount" value="0">
+      <div class="calculator-actions"><button class="secondary-button" type="button" id="custom-calculate">Calculate Price</button></div>
+    </div>
+  </fieldset>
+  <fieldset>
+    <legend>Pricing Summary</legend>
+    <div id="price-summary" class="price-summary">
+      <p>Selected Package: <strong id="selected-package">--</strong></p>
+      <p>Base Price: <strong id="base-price">--</strong></p>
+      <p>Discount Applied: <strong id="discount-applied">--</strong></p>
+      <hr>
+      <p class="total">Total Price: <strong id="total-price">--</strong></p>
+      <p class="terms">*This is an estimate. Final pricing may vary based on complexity.</p>
+    </div>
+  </fieldset>
+  <input type="hidden" id="calculated-price" name="calculated_price" value="">
+  <button type="submit" class="submit-button">Book Your Editor</button>
+  <p class="disclaimer">We'll review your request and get back to you within 24 hours.</p>
 </form>
-
 </div>
-
 </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <footer class="site-footer">
   <div class="footer-grid">
@@ -1366,12 +2074,7 @@ Submit Project
     </div>
     <div>
       <h3>Services</h3>
-      <a href="Transformation.html">Transformation Stories</a>
-      <a href="Creator.html">Creator Content</a>
-      <a href="Trips.html">Travel & Trip Films</a>
-      <a href="Anniversary.html">Anniversary Storytelling</a>
-      <a href="Baby Shower.html">Baby Shower Memories</a>
-      <a href="SMM.html">Social Media Management</a>
+      <a href="creator-longform.html">Long Form Content</a><a href="creator-shortform.html">Short Form Content</a><a href="celebration-beginnings.html">Little Beginnings</a><a href="celebration-frames.html">Forever Frames</a><a href="transformation-growth.html">Personal Growth</a><a href="transformation-lifestyle.html">Lifestyle Transformation</a><a href="journey-destination.html">Destination Films</a><a href="journey-adventure.html">Adventure & Experiences</a><a href="social-business.html">Small Business</a><a href="social-brand.html">Established Brand</a>
     </div>
     <div>
       <h3>Contact</h3>
@@ -1387,42 +2090,30 @@ Submit Project
     </div>
   </div>
 </footer>
-
-
+<script src="pricing-calculator.js"></script>
 <script>
 document.addEventListener("click", function (event) {
   var link = event.target.closest("a");
   if (!link || event.defaultPrevented) return;
   if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
   if (link.target && link.target !== "_self") return;
-
   var url = new URL(link.href, window.location.href);
   if (url.origin !== window.location.origin) return;
-
   if (url.pathname === window.location.pathname && url.hash) {
     var target = document.querySelector(url.hash);
     if (!target) return;
     event.preventDefault();
     history.pushState(null, "", url.hash);
-    target.scrollIntoView({
-      behavior: "smooth",
-      block: "start"
-    });
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
     return;
   }
-
   event.preventDefault();
   document.body.classList.add("is-leaving");
-  window.setTimeout(function () {
-    window.location.href = url.href;
-  }, 660);
+  window.setTimeout(function () { window.location.href = url.href; }, 660);
 });
-
 window.addEventListener("pageshow", function () {
   document.body.classList.remove("is-leaving");
 });
 </script>
 </body>
-
 </html>
-
