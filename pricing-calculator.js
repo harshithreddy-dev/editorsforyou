@@ -58,9 +58,9 @@ const categoryLabels = {
   "social": "Social Spark Package"
 };
 const tierPrices = {
-  spark: { multiplier: 0.8, name: "SPARK / BASIC" },
-  momentum: { multiplier: 1.0, name: "MOMENTUM / PREMIUM" },
-  ascend: { multiplier: 1.3, name: "ASCEND / LUXURY" }
+  spark: { multiplier: 0.8, name: "BASIC / BASIC" },
+  momentum: { multiplier: 1.0, name: "STANDARD / PREMIUM" },
+  ascend: { multiplier: 1.3, name: "PREMIUM / LUXURY" }
 };
 
 function money(value) {
