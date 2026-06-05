@@ -1919,6 +1919,107 @@ body.subcat-beginnings .pricing-button{
   height:24px !important;
 }
 
+
+
+/* ---------- MOBILE NAV FIX ---------- */
+@media(max-width:700px){
+  .site-nav{
+    align-items:center !important;
+    gap:12px !important;
+    padding:12px 5vw !important;
+  }
+
+  .nav-brand{
+    max-width:calc(100% - 130px) !important;
+    overflow:hidden !important;
+    text-overflow:ellipsis !important;
+  }
+
+  .nav-cta{
+    padding:10px 16px !important;
+    margin-left:auto !important;
+  }
+
+  .nav-links{
+    order:3 !important;
+    width:100% !important;
+    display:flex !important;
+    flex-direction:row !important;
+    flex-wrap:wrap !important;
+    align-items:center !important;
+    justify-content:flex-start !important;
+    gap:10px 16px !important;
+    max-height:none !important;
+  }
+
+  .nav-services{
+    display:inline-flex !important;
+    width:auto !important;
+    padding:0 !important;
+    margin:0 !important;
+    position:relative !important;
+  }
+
+  .nav-services::after{
+    display:none !important;
+  }
+
+  .nav-services-panel{
+    display:none !important;
+    position:absolute !important;
+    top:calc(100% + 10px) !important;
+    left:0 !important;
+    width:min(330px, calc(100vw - 28px)) !important;
+    max-height:58vh !important;
+    overflow:auto !important;
+    grid-template-columns:1fr !important;
+    transform:none !important;
+    margin-top:0 !important;
+    z-index:10000 !important;
+  }
+
+  .nav-services:hover .nav-services-panel,
+  .nav-services:focus-within .nav-services-panel{
+    display:grid !important;
+    opacity:1 !important;
+    visibility:visible !important;
+    pointer-events:auto !important;
+  }
+
+  .hero{
+    padding-top:146px !important;
+  }
+}
+
+
+
+/* ---------- MOBILE DROPDOWN DISABLE ---------- */
+@media(max-width:700px){
+  .nav-services-panel,
+  .nav-services:hover .nav-services-panel,
+  .nav-services:focus-within .nav-services-panel{
+    display:none !important;
+    visibility:hidden !important;
+    opacity:0 !important;
+    pointer-events:none !important;
+    position:absolute !important;
+    height:0 !important;
+    max-height:0 !important;
+    overflow:hidden !important;
+  }
+
+  .nav-services{
+    display:inline-flex !important;
+    width:auto !important;
+    padding:0 !important;
+    margin:0 !important;
+  }
+
+  .site-nav{
+    max-height:none !important;
+  }
+}
+
 </style>
 
 </head>
